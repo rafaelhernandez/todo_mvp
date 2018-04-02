@@ -1,0 +1,73 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "author": "",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "scripts": {
+    "seed-database": "node db/seed.js",
+    "build": "yarn build:client",
+    "build:server": "webpack -d --config ./webpack.server.config.js --watch",
+    "build:client": "webpack -d --config ./webpack.client.config.js --watch",
+    "start": "node server/server",
+    "start:dev": "nodemon server/server",
+    "debug": "node --inspect server/server.js",
+    "test": "jest test --forceExit",
+    "test:unit": "jest unit --forceExit",
+    "start:server-test": "PORT=3000 node server/server.js &",
+    "test:integration-manually": "PORT=3001 node server/server.js & jest integration ; kill -9 $(lsof -i TCP:3000 | grep LISTEN | awk '{print $2}')",
+    "test:integration": "PORT=3000 node server/server.js & jest integration",
+    "stop:server-test": "kill -9 $(lsof -i TCP:3000 | grep LISTEN | awk '{print $2}')"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "mongoose": "^5.0.7",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.14.0",
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.10",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.4.0",
+    "node-sass": "^4.7.2",
+    "puppeteer": "^1.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "superagent": "^3.8.2",
+    "supertest": "^3.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
+  }
+}

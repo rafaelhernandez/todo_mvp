@@ -1,0 +1,54 @@
+html,
+body {
+    height: 100%;
+    color: #61DAFB;
+    background: #4D4D4D;
+}
+
+h1 {
+    text-align: center;
+}
+
+.div-main {
+    width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.div-todos-app {
+    margin-top: 20px;
+}
+
+.div-todoListItem {
+    list-style: none;
+    background-color: #F5F5F5;
+}
+
+.div-todoListItem:hover {
+    background-color: #E5E5E5;
+}
+
+.form-inline .form-control {
+    width: 90%;
+}
+
+.div-todo-done {
+    color: red;
+    text-decoration: line-through;
+}
+
+.div-todo-close {
+    color: red;
+}
+
+.div-todo-pending {
+    color: #61DAFB;
+}
+
+.buttom-add {
+    width: 10%;
+}
+
+.icon {
+    margin: 6px 10px 6px 0;
+}
